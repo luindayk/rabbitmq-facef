@@ -1,0 +1,16 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: rabbit
+      MYSQL_DATABASE: rabbit
+      MYSQL_USER: rabbit
+      MYSQL_PASSWORD: rabbit
+    ports:
+      - "3308:3306"
